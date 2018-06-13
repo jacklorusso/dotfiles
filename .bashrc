@@ -21,10 +21,20 @@ export HISTCONTROL=ignoredups
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
+# go programming
+export GOPATH="$HOME/projects/goworkspace"
+export PATH="$PATH:/usr/local/go/bin"
+
+# node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 ######################## ALIASES ##########################
 
 # git aliases
 alias g="git"
+alias gs="git status"
 alias ga="git add"
 alias gaa="git add --all"
 alias gc="git commit"

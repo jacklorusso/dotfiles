@@ -9,7 +9,7 @@ function parse_git_branch {
 
 ####################### EXPORTS ##########################
 # prompt
-export PS1="\u@\h \[\e[34m\W\]\\[\e[36m\$(parse_git_branch)\]\n\[\e[0m$\] "
+export PS1="\u@\h \[\e[34m\W\]\\[\e[36m\$(parse_git_branch)\]\n\[\e[0m▸ "
 
 # Make vim the default editor
 export EDITOR="vim"
@@ -43,6 +43,7 @@ alias gco="git checkout"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gpl="git pull"
+alias gpf="git push -"
 
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
@@ -62,3 +63,6 @@ alias v="vim"
 alias sb="source ~/.bashrc"
 alias be="bundle exec"
 alias p3="python3"
+alias nom="npm"
+
+source /usr/local/share/chruby/chruby.sh

@@ -1,6 +1,6 @@
 function parse_git_branch {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "|"${ref#refs/heads/}""
+  echo " ("${ref#refs/heads/}")"
 }
 
 # Use bash-completion, if available
@@ -9,7 +9,7 @@ function parse_git_branch {
 
 ####################### EXPORTS ##########################
 # prompt
-export PS1="\u@\h \[\e[34m\W\]\\[\e[36m\$(parse_git_branch)\]\n\[\e[0m▸ "
+export PS1="\[\e[36m\\u@\h \[\e[34m\W\]\\[\e[33m\$(parse_git_branch)\]\n\[\e[0m$ "
 
 # Make vim the default editor
 export EDITOR="vim"
@@ -38,6 +38,7 @@ alias gs="git status"
 alias ga="git add"
 alias gaa="git add --all"
 alias gc="git commit"
+alias gcm="git commit -m"
 alias gca="git commit --amend"
 alias gco="git checkout"
 alias gd="git diff"

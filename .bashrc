@@ -7,6 +7,12 @@ function parse_git_branch {
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+# Use git completion, if available
+# run this to download if not available: curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 ####################### EXPORTS ##########################
 # prompt
 export PS1="\[\e[36m\\u@\h \[\e[34m\W\]\\[\e[33m\$(parse_git_branch)\]\n\[\e[0m$ "
@@ -20,13 +26,6 @@ export HISTCONTROL=ignoredups
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-
-# rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# go programming
-export GOPATH="$HOME/projects/goworkspace"
-export PATH="$PATH:/usr/local/go/bin"
 
 # node version manager
 export NVM_DIR="$HOME/.nvm"
@@ -51,6 +50,8 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gpl="git pull"
 alias gpf="git push -"
+alias gb="git blame"
+alias gbl="git log --pretty=short -u -L"
 
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
@@ -68,8 +69,15 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 # other aliases
 alias v="vim"
 alias sb="source ~/.bashrc"
-alias be="bundle exec"
-alias p3="python3"
 alias nom="npm"
+alias npn="npm"
 
-source /usr/local/share/chruby/chruby.sh
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash

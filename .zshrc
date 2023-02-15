@@ -144,10 +144,10 @@ zsh_command_time() {
         hours=$(($ZSH_COMMAND_TIME/3600))
         min=$(($ZSH_COMMAND_TIME/60))
         sec=$(($ZSH_COMMAND_TIME%60))
-        if [ "$ZSH_COMMAND_TIME" -le 60 ]; then
+        if [ "$ZSH_COMMAND_TIME" -le 30 ]; then
             timer_show="$fg[green]$ZSH_COMMAND_TIME s."
-        elif [ "$ZSH_COMMAND_TIME" -gt 60 ] && [ "$ZSH_COMMAND_TIME" -le 180 ]; then
-            timer_show="$fg[yellow]$min min. $sec s."
+	elif [ "$ZSH_COMMAND_TIME" -gt 30 ] && [ "$ZSH_COMMAND_TIME" -le 60 ]; then
+	    timer_show="$fg[yellow]$ZSH_COMMAND_TIME s."
         else
             if [ "$hours" -gt 0 ]; then
                 min=$(($min%60))

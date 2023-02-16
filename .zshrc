@@ -72,7 +72,7 @@ export UPDATE_ZSH_DAYS=30
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-time)
+plugins=(command-time)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,7 +113,8 @@ alias gco="git checkout"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gpl="git pull"
-alias gpf="git push -"
+alias gps="git push"
+alias gpf="git push -f"
 alias gb="git blame"
 alias gbl="git log --pretty=short -u -L"
 
